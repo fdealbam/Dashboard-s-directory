@@ -58,7 +58,7 @@ mes_edos= pd.read_csv("00.cvs")
 
 
 
-app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
+app = dash.Dash(external_stylesheets=[dbc.themes.DARKLY])
 
 # the style arguments for the sidebar. We use position:fixed and a fixed width
 SIDEBAR_STYLE = {
@@ -90,7 +90,7 @@ sidebar = html.Div(
             [
                 dbc.NavLink("COVID-19", href="https://camaradiputados.herokuapp.com/", active="exact"),
                 dbc.NavLink("Feminicidios", href="https://feminicidios.herokuapp.com/", active="exact"),
-              #  dbc.NavLink("Page 2", href="/page-2", active="exact"),
+                dbc.NavLink("Violencia familiar", href="https://violenciafamiliar.herokuapp.com/", active="exact"),
             ],
             vertical=True,
             pills=True,
@@ -111,9 +111,9 @@ def render_page_content(pathname):
     elif pathname == "/page-1":
         return html.P(d2),
     
-    #elif pathname == "/page-2":
-     #   return html.P("Oh cool, this is page 2!")
-    # If the user tries to reach a different page, return a 404 message
+    elif pathname == "/page-2":
+        return html.P("Oh cool, this is page 2!")
+    If the user tries to reach a different page, return a 404 message
     return dbc.Jumbotron(
         [
             html.H1("404: Not found", className="text-danger"),
