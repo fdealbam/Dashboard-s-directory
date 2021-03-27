@@ -58,7 +58,7 @@ mes_edos= pd.read_csv("00.cvs")
 
 
 
-app = dash.Dash(external_stylesheets=[dbc.themes.DARKLY])
+app = dash.Dash(external_stylesheets=[dbc.themes.FLATLY])
 
 # the style arguments for the sidebar. We use position:fixed and a fixed width
 SIDEBAR_STYLE = {
