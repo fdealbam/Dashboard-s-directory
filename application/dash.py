@@ -1,3 +1,4 @@
+
 import dash
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
@@ -56,9 +57,13 @@ mes_edos= pd.read_csv("00.cvs")
 
 
 
+#########################################################################################################
 
+# A P P 
 
-app = dash.Dash(external_stylesheets=[dbc.themes.FLATLY])
+#########################################################################################################
+
+app = dash.Dash(external_stylesheets=[dbc.themes.DARKLY])
 
 # the style arguments for the sidebar. We use position:fixed and a fixed width
 SIDEBAR_STYLE = {
@@ -81,7 +86,7 @@ CONTENT_STYLE = {
 
 sidebar = html.Div(
     [
-        html.H6("Dashboards´s Collection", className="display-6"),
+        html.H4("Laboratoratorio de Estadistica para la Innovación", className="display-6"),
         html.Hr(),
         html.P(
             "", className="lead"
