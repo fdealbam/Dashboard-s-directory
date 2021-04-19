@@ -29,36 +29,11 @@ d2 = today.strftime("Fecha de actualización : %d-%m-%Y")
 
 
 
-###############################
-# DATABASES
-############################### Abre archivos
-
-base = pd.read_csv('https://raw.githubusercontent.com/fdealbam/CamaraDiputados/main/application/mun_p1_cvegeo.csv', encoding='latin-1', usecols=['Nom_Ent','nom_mun','cve_ent_mun1','cve_ent_mun2'])
-contagios = pd.read_csv("https://datos.covid-19.conacyt.mx/Downloads/Files/Casos_Diarios_Municipio_Confirmados_%s.csv" %(yea))
-#decesos= pd.read_csv("https://raw.githubusercontent.com/fdealbam/CamaraDiputados/main/Casos_Diarios_Municipio_Defunciones_20210312.csv")
-decesos = pd.read_csv("https://datos.covid-19.conacyt.mx/Downloads/Files/Casos_Diarios_Municipio_Defunciones_%s.csv" %(yea))
-SS = ('https://datos.covid-19.conacyt.mx/')
-#autores = ('https://raw.githubusercontent.com/winik-pg/exercises_pythoncitos/master/Autores.docx')
-entidades  =  pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/us-cities-top-1k.csv" )
-
-pasa= pd.read_csv('https://raw.githubusercontent.com/winik-pg/exercises_pythoncitos/master/000_comorbilidades.csv')
-titulos=['cve_geo1','cve_ent', 'decesos_60_y_mas']
-muertos60_mas = pd.read_csv('https://raw.githubusercontent.com/winik-pg/exercises_pythoncitos/master/muertes_60%2B.csv', names=titulos)
-
-aa = pd.read_csv("https://raw.githubusercontent.com/fdealbam/CamaraDiputados/main/application/Tabla%202.%20Confirmados%20por%20semana.csv")
-aa.groupby("Nom_Ent").sum().to_csv("00.cvs")
-sem_edos= pd.read_csv("00.cvs")
-sem_edos
-
-ee = pd.read_csv("https://raw.githubusercontent.com/fdealbam/CamaraDiputados/main/application/Tabla%201.%20Confirmados%20mensuales.csv")
-ee.groupby("Nom_Ent").sum().to_csv("00.cvs")
-mes_edos= pd.read_csv("00.cvs")
+##
 
 
 
-
-
-app = dash.Dash(external_stylesheets=[dbc.themes.FLATLY])
+app = dash.Dash(external_stylesheets=[dbc.themes.SKETCHY])
 
 # the style arguments for the sidebar. We use position:fixed and a fixed width
 SIDEBAR_STYLE = {
@@ -91,6 +66,9 @@ sidebar = html.Div(
                 dbc.NavLink("COVID-19", href="https://camaradiputados.herokuapp.com/", active="exact"),
                 dbc.NavLink("Feminicidios", href="https://feminicidios.herokuapp.com/", active="exact"),
                 dbc.NavLink("Violencia familiar", href="https://violenciafamiliar.herokuapp.com/", active="exact"),
+                dbc.NavLink("Violación", href="https://violacion.herokuapp.com/", active="exact"),
+                dbc.NavLink("Abuso sexual", href="https://abusosexual.herokuapp.com/", active="exact"),
+                dbc.NavLink("Vacunas SRE", href="https://vacunassre.herokuapp.com/", active="exact"),
             ],
             vertical=True,
             pills=True,
@@ -113,7 +91,7 @@ def render_page_content(pathname):
     
     elif pathname == "/page-2":
         return html.P("Oh cool, this is page 2!")
-    #If the user tries to reach a different page, return a 404 message
+   # If the user tries to reach a different page, return a 404 message
     return dbc.Jumbotron(
         [
             html.H1("404: Not found", className="text-danger"),
